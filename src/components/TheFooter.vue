@@ -1,9 +1,6 @@
 <!-- Шаблон для разметки компонента -->
 <template>
   <footer class="footer">
-    <div><span>Привет</span></div>
-    <div><span>как твои</span></div>
-    <div><span>дела!</span></div>
   </footer>
 </template>
 

@@ -1,6 +1,7 @@
 <template>
-  <section>
+  <section class="form-section">
     <main class="main">
+      <NavMenu />
       <form class="form" action="">
         <h2 class="form__title">Форма для проекта Vue</h2>
         <label class="form__label" for="input-title"
@@ -22,31 +23,47 @@
 
         <button @:click="addNewTask" class="form__button" type="button">Добавить дело</button>
       </form>
-      <TasksList />
+      <TasksList :tasksList="tasksList" />
     </main>
   </section>
 </template>
 
 <script>
 import TasksList from "./TasksList.vue";
+import NavMenu from "./NavMenu.vue";
 
 export default {
   data() {
     return {
       titlePlaceholder: "Введите заголовок",
       textPlaceholder: "Введите описание",
+      tasksList: [
+        {
+          title: "Vue дело",
+          description: "Тут описание очень важного Vue дела",
+        },
+        {
+          title: "Второе Vue-дело",
+          description: "Тут описание очень важного Vue дела",
+        },
+      ],
     };
   },
   methods: {
     addNewTask() {},
   },
   components: {
-    TasksList, // Регистрируем компонент
+    NavMenu,
+    TasksList,
   },
 };
 </script>
 
 <style>
+.form-section {
+  padding: 30px;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -62,7 +79,7 @@ export default {
   background-color: white;
   padding: 30px;
   border-radius: 10px;
-  border: 1px solid;
+  border: 3px solid;
 }
 
 .form__label {
@@ -74,7 +91,12 @@ export default {
 .form__input {
   block-size: 30px;
   border-radius: 10px;
-  border-style: solid 1px;
+  border-style: 1px solid gray;
+  outline: none;
+}
+
+.form__input:focus {
+  border-style: 4px solid;
 }
 
 .form__button {
