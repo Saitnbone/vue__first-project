@@ -4,6 +4,10 @@ import eslintPlugin from "vite-plugin-eslint";
 import path from "path";
 
 export default defineConfig({
+  build: {
+    outDir: "dist",
+    emptyOutDir: true,
+  },
   plugins: [vue(), eslintPlugin()],
   resolve: {
     alias: {
@@ -11,6 +15,6 @@ export default defineConfig({
     },
   },
   server: {
-    port: 8080,
+    open: true,
   },
 });

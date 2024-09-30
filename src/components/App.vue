@@ -1,3 +1,4 @@
+<!-- Шаблон для основного приложения -->
 <template>
   <the-header></the-header>
   <the-main></the-main>
